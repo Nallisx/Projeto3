@@ -4,165 +4,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Monitoramento de Descarte Irregular</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Ajude a combater o descarte irregular de lixo em Tianguá. Denuncie locais de descarte inadequado e contribua para a preservação do meio ambiente.">
+    <title>Plataforma de Denúncia - Descarte Irregular de Lixo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset de estilos */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Estilos globais */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         header {
-            background: linear-gradient(90deg, #4CAF50, #388E3C);
+            background: linear-gradient(135deg, #4caf50, #388e3c);
             color: white;
             text-align: center;
-            padding: 60px 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 80px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
+            animation: fadeInDown 1s ease-in-out;
         }
 
-        header p {
-            font-size: 1.5rem;
-            margin-top: 10px;
+        header::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 5px;
+            background-color: white;
+            border-radius: 5px;
         }
 
         .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .content {
-            flex: 1;
-            max-width: 600px;
-            padding: 20px;
-        }
-
-        .content h1 {
-            font-size: 2.8rem;
+        .container h2 {
+            font-size: 2rem;
             color: #333;
             margin-bottom: 20px;
+            border-bottom: 2px solid #4caf50;
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
-        .content p {
-            font-size: 1.2rem;
-            color: #666;
+        .container p {
+            font-size: 1.1rem;
+            color: #555;
             margin-bottom: 20px;
+            line-height: 1.8;
         }
 
-        .content button {
-            background-color: #b5651d;
+        .container ul {
+            list-style-type: disc;
+            margin-bottom: 30px;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .container ul li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        .btn {
+            background-color: #f44336;
             color: white;
-            padding: 15px 25px;
+            padding: 15px 30px;
             border: none;
             border-radius: 25px;
-            font-size: 1.2rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            font-weight: 600;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
         }
 
-        .content button:hover {
-            background-color: #8b4513;
-            transform: translateY(-3px);
+        .btn:hover {
+            background-color: #d32f2f;
+            transform: translateY(-2px);
         }
 
-        .content button a {
+        .btn a {
             color: white;
             text-decoration: none;
         }
 
-        .image-container {
-            flex: 1;
-            max-width: 600px;
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: #4caf50;
+            color: white;
+            position: relative;
         }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        footer p {
+            margin-bottom: 0;
         }
 
-        .problem-description {
-            background-color: white;
-            padding: 40px 20px;
-            border-radius: 12px;
-            margin: 40px auto;
-            max-width: 1200px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .problem-description h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .problem-description p {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .problem-description ul {
-            padding-left: 20px;
-        }
-
-        .problem-description ul li {
-            list-style-type: square;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
-
-            .image-container {
-                order: -1;
-                margin-bottom: 20px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
             }
 
-            .content h1 {
-                font-size: 2.2rem;
+            .container h2 {
+                font-size: 1.8rem;
             }
-        }
 
-        /* Adiciona transições suaves para links */
-        a {
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #4CAF50;
+            .btn {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
         }
     </style>
 </head>
@@ -170,31 +158,29 @@
 <body>
 
     <header>
-        <h1>Plataforma de Monitoramento de Descarte Irregular</h1>
-        <p>Ajude a Combater o Descarte Irregular de Lixo em Tianguá reportando locais inadequados.</p>
+        <h1>Bem-vindo à Plataforma de Denúncia</h1>
     </header>
 
-    <div class="container">
-        <div class="content">
-            <h1>Realize sua denúncia abaixo</h1>
-            <p>Ajude a comunidade a identificar e reportar o descarte irregular de resíduos. Juntos podemos manter a cidade limpa e segura para todos.</p>
-            <button><a href="https://czechopu.github.io/testesitefied/" target="_blank">Denunciar</a></button>
-        </div>
-        <div class="image-container">
-            <img src="https://example.com/your-image.jpg" alt="Imagem de poluição">
-        </div>
-    </div>
+    <main>
+        <section class="container">
+            <h2>A importância da plataforma de denúncia</h2>
+            <p>Esta plataforma foi criada com o objetivo de facilitar o processo de denúncia de locais com descarte inadequado de lixo em Tianguá. Com a sua ajuda, podemos preservar o meio ambiente e melhorar a qualidade de vida na nossa comunidade.</p>
+            <h2>Principais problemas causados pelo descarte irregular de lixo</h2>
+            <ul>
+                <li>Contaminação do solo e das águas, prejudicando o meio ambiente e a biodiversidade local.</li>
+                <li>Propagação de doenças devido à proliferação de pragas, como mosquitos e ratos.</li>
+                <li>Entupimento de bueiros, causando enchentes e inundações nas áreas urbanas.</li>
+                <li>Impacto visual negativo, degradando o espaço público e a qualidade de vida.</li>
+            </ul>
+            <button class="btn">
+                <a href="https://czechopu.github.io/testesitefied/" target="_blank">Realize agora sua denúncia</a>
+            </button>
+        </section>
+    </main>
 
-    <section class="problem-description">
-        <h2>Problemas Causados pelo Descarte Irregular de Lixo</h2>
-        <p>O descarte inadequado de resíduos sólidos gera diversos problemas que afetam tanto o meio ambiente quanto a saúde pública. Entre os principais impactos estão:</p>
-        <ul>
-            <li>Contaminação do solo e das águas, prejudicando a biodiversidade local.</li>
-            <li>Aumento de doenças transmitidas por mosquitos e roedores.</li>
-            <li>Entupimento de bueiros e esgotos, o que pode causar enchentes em áreas urbanas.</li>
-            <li>Impacto visual negativo e degradação da qualidade de vida nas comunidades.</li>
-        </ul>
-    </section>
+    <footer>
+        <p>&copy; 2024 Plataforma de Denúncia - Descarte Irregular de Lixo em Tianguá</p>
+    </footer>
 
 </body>
 
